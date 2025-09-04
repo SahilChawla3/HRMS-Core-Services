@@ -68,7 +68,12 @@ class LeaveRequestBase(BaseModel):
 
 
 class LeaveRequestCreate(LeaveRequestBase):
-    pass
+    employee_id: str
+    leave_type: LeaveTypeEnum
+    start_date: date
+    end_date: date
+    status: Optional[LeaveStatusEnum] = LeaveStatusEnum.pending
+    reason: str
 
 
 class LeaveRequestUpdate(BaseModel):
